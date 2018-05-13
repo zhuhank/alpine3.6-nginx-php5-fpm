@@ -3,8 +3,6 @@ FROM alpine:3.6
 MAINTAINER Shudong Zhu <shudong@eefocus.com>
 ENV PHP_VERSION=5.6 
 
-# dependencies required for running "phpize"
-		
 RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  \
 	&&echo "https://mirrors.aliyun.com/alpine/v3.6/community" >> /etc/apk/repositories  \
     && apk update \
