@@ -25,6 +25,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	#&& rm -rf /etc/nginx/conf.d/* \
 	&& mkdir -p /run/nginx \ 
 	&& mkdir -p /var/log/supervisor \ 
+	&& mkdir -p /var/log/php5 \ 
 	&& mkdir /etc/supervisor.d 
     
 	
