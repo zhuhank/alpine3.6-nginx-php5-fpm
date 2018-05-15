@@ -17,6 +17,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	&& echo "" |pecl install memcache \
 	&& echo "extension=memcache.so" > /etc/php5/conf.d/memcache.ini \
 	&& echo "extension=redis.so" > /etc/php5/conf.d/redis.ini \
+	&& echo "extension=sphinx.so" > /etc/php5/conf.d/sphinx.ini \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" >  /etc/timezone \
 	&& rm -rf /tmp/pear/* \
@@ -29,7 +30,8 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	&& mkdir /etc/supervisor.d 
     
 	
-	
+COPY libsphinxclient-0.0.1.so /usr/local/lib/libsphinxclient-0.0.1.so
+COPY sphinx.so /usr/lib/php5/modules/
 COPY start.sh /start.sh
 COPY supervisor_nginx_php-fpm.ini /etc/supervisor.d
 EXPOSE 80 
