@@ -14,7 +14,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	&& ln -s /usr/bin/phpize5 /usr/bin/phpize \
 	&& sed -i "$ s|\-n||g" /usr/bin/pecl \
 	&& pecl channel-update pecl.php.net \
-	&& pear config-set http_proxy http://23.83.239.19:30888\
+	#&& pear config-set http_proxy http://23.83.239.19:30888\
 	&& echo "" |pecl install redis-3.1.6\
 	&& echo "" |pecl install memcache \
 	#&& echo "" |pecl install memcached-2.2.0 \
