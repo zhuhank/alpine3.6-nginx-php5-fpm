@@ -13,11 +13,13 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	&& ln -s /usr/bin/phpize5 /usr/bin/phpize \
 	&& sed -i "$ s|\-n||g" /usr/bin/pecl \
 	&& pecl channel-update pecl.php.net \
+	&& pear config-set http_proxy http://23.83.239.19:30888\
 	&& echo "" |pecl install redis-3.1.6\
 	&& echo "" |pecl install memcache \
 	&& echo "extension=memcache.so" > /etc/php5/conf.d/memcache.ini \
 	&& echo "extension=redis.so" > /etc/php5/conf.d/redis.ini \
 	&& echo "extension=sphinx.so" > /etc/php5/conf.d/sphinx.ini \
+	&& echo "extension=apcu.so" > /etc/php5/conf.d/apcu.ini \
 	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" >  /etc/timezone \
 	&& rm -rf /tmp/pear/* \
@@ -32,6 +34,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
 	
 COPY libsphinxclient-0.0.1.so /usr/local/lib/libsphinxclient-0.0.1.so
 COPY sphinx.so /usr/lib/php5/modules/
+COPY apcu.so /usr/lib/php5/modules/
 COPY start.sh /start.sh
 COPY supervisor_nginx_php-fpm.ini /etc/supervisor.d
 EXPOSE 80 
