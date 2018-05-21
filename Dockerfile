@@ -8,7 +8,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.6/main" > /etc/apk/repositories  
     && apk update \
     && apk add --no-cache --virtual .build-deps zlib-dev php5-dev  autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c\ 
 	&& apk add --no-cache --virtual .persistent-deps ca-certificates curl tar xz supervisor dcron tzdata \
-	&& apk add --no-cache nginx php5 php5-fpm php5-pear php5-bz2 php5-calendar  php5-zlib php5-zip php5-xml php5-sockets php5-soap php5-posix php5-phar php5-pdo_mysql php5-openssl php5-opcache  php5-mcrypt php5-mysqli php5-json php5-iconv php5-gd php5-gettext php5-xmlreader php5-ctype php5-bcmath php5-dom php5-exif php5-curl \
+	&& apk add --no-cache nginx php5 php5-fpm php5-pear php5-bz2 php5-calendar  php5-zlib php5-zip php5-xml php5-sockets php5-soap php5-posix php5-phar php5-pdo_mysql php5-openssl php5-opcache  php5-mcrypt php5-mysql php5-mysqli php5-json php5-iconv php5-gd php5-gettext php5-xmlreader php5-ctype php5-bcmath php5-dom php5-exif php5-curl \
 	libmemcached-dev \
 	&& ln -s /usr/bin/php5 /usr/bin/php \
 	&& ln -s /usr/bin/phpize5 /usr/bin/phpize \
